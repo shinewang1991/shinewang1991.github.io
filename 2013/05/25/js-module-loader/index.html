@@ -13,7 +13,7 @@
 
     <title>
         
-          Example Post with Code Highlight - ShineWang的博客 | Shinewang&#39;s Blog
+          Example Post with Code Highlight - shine的博客 | shine&#39;s Blog | shinewang
         
     </title>
 
@@ -23,15 +23,15 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/hux-blog.css">
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
 
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
 
     <!-- Custom Fonts -->
-    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- Hux Delete, sad but pending in China
@@ -57,7 +57,7 @@
 <body ontouchstart="">
 
     <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top  ">
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -158,7 +158,7 @@
         background-image: url('post-bg-js-module.jpg')
     }
 </style>
-<header class="intro-header  " >
+<header class="intro-header" >
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -171,9 +171,7 @@
                         
                     </div>
                     <h1>Example Post with Code Highlight</h1>
-                    
                     <h2 class="subheading">CommonJS，RequireJS，SeaJS 归纳笔记</h2>
-                    
                     <span class="meta">
                         Posted by Hux on
                         2013-05-25
@@ -378,17 +376,17 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://blog.kaijun.rocks">Kaijun&#39;s Blog</a></li>
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
                     
-                        <li><a href="http://huangxuan.me">Hux Blog</a></li>
+                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
                     
-                        <li><a href="#">Foo</a></li>
+                        <li><a href="#" target="_blank">Foo</a></li>
                     
-                        <li><a href="#">Bar</a></li>
+                        <li><a href="#" target="_blank">Bar</a></li>
                     
-                        <li><a href="#">Example Friends</a></li>
+                        <li><a href="#" target="_blank">Example Friends</a></li>
                     
-                        <li><a href="#">It helps SEO</a></li>
+                        <li><a href="#" target="_blank">It helps SEO</a></li>
                     
                 </ul>
                 
@@ -432,7 +430,7 @@
 </script>
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
           visible: 'always',
           placement: 'right',
@@ -485,15 +483,6 @@
                 
 
                 
-                    <li>
-                        <a target="_blank" href="http://weibo.com/Demonbane">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
 
                 
 
@@ -518,6 +507,12 @@
                     <span style="display: inline-block; margin: 0 5px;">
                         <i class="fa fa-heart"></i>
                     </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
                 </p>
             </div>
         </div>
@@ -581,7 +576,7 @@
 
 <!--fastClick.js -->
 <script>
-    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
