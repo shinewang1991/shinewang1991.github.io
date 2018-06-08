@@ -13,11 +13,11 @@
 
     <title>
         
-          Archives - shine的博客 | shine&#39;s Blog | shinewang
+          微信Hook不断折腾 - shine的博客 | shine&#39;s Blog | shinewang
         
     </title>
 
-    <link rel="canonical" href="https://shinewang1991.github.io/archives/">
+    <link rel="canonical" href="https://shinewang1991.github.io/2018/05/26/微信Hook不断折腾/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -147,169 +147,140 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://shinewang1991.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg-o.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Archives</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Archives.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>微信Hook不断折腾</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Shine Wang on
+                        2018-05-26
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <p>折腾中遇到最多的问题就是装不上机器. </p>
+<ol>
+<li><p>!AMDeviceSecureInstallApplication问题<br> 这个错误一般都还是mobileprovision文件的问题。一定要是可用的，用个人的免费开发账号随便写个工程run一下。就可以从app里提取出一个这样的文件.</p>
+</li>
+<li><p>!AMDeviceSecureInstallApplication 这个是你在重签名时bundle id改的不全造成的，默认你用了你的免费开发证书重签后，会把app的bundle id改成你的包名，但是可能watchkit和extension的包名没改过来。就会导致这个问题。改成一致就好了</p>
+</li>
+<li><p>This app contains a WatchKit app with an invalid bundle identifier. The bundle identifier of a WatchKit app must have a prefix consisting of the companion app’s bundle identifier, followed by a ‘.’.<br> 这个错误的原因是用了企业证书重签名，改过bundle ID 了，而bundle id 改的还不全，watchkit 和 extension的bundle id和app的bundle id对不上。 解决办法就是要么把主app重新改bundle id为微信官方的bundle id(com.tencent.xin)，这样还不会被微信查到. 要么就是把watchkit 和 extension的bundle id也改成你要的bundle id 。总之保持bundle id一致就行了.</p>
+</li>
+<li><p>目前遇到的问题，是由于我用了企业证书重签，导致了收不到push推送了。网上有说企业证书重签也是可以实现接收push的，但你的企业证书得生成一个支持APNS的证书才可以。这个后续再更新.</p>
+</li>
+<li>在猜测函数功能的时候，我们可以hook住这个函数，然后加个NSLog打印出参数。在Mac自带的console里删选，看log分析具体这个函数是做什么的。记得在NSLog后记得CHSuper调用原来的函数</li>
+</ol>
 
 
+                <hr>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
-                    <span class="tag-text">2018</span>
-                </span>
-                <ul>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-08
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/06/08/存储SHSH-blobs/" style="color: #0085a1">
-                        <span>
-                            存储SHSH blobs
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    05-26
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/05/26/微信Hook不断折腾/" style="color: #0085a1">
-                        <span>
-                            微信Hook不断折腾
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    05-08
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/05/08/OpenCV环境搭建/" style="color: #0085a1">
-                        <span>
-                            OpenCV环境搭建
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    05-08
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/05/08/记录一点产品的灵感/" style="color: #0085a1">
-                        <span>
-                            记录一点产品的灵感
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-25
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/25/解决cocoapods问题/" style="color: #0085a1">
-                        <span>
-                            解决cocoapods问题
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-21
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/21/iOS平台基于FFmpeg视频解码的实现/" style="color: #0085a1">
-                        <span>
-                            iOS平台基于FFmpeg视频解码的实现
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/12/Hexo-Github-Travis-CI搭建blog记录/" style="color: #0085a1">
-                        <span>
-                            Hexo+Github+Travis CI搭建blog记录
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/10/第一篇博客/" style="color: #0085a1">
-                        <span>
-                            我的博客终于开通了
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
                 
 
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/06/08/存储SHSH-blobs/" data-toggle="tooltip" data-placement="top" title="存储SHSH blobs">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/05/08/OpenCV环境搭建/" data-toggle="tooltip" data-placement="top" title="OpenCV环境搭建">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
 
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
 
         </div>
     </div>
-</div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "shinewang";
+    var disqus_identifier = "https://shinewang1991.github.io/2018/05/26/微信Hook不断折腾/";
+    var disqus_url = "https://shinewang1991.github.io/2018/05/26/微信Hook不断折腾/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
 
 
     <!-- Footer -->

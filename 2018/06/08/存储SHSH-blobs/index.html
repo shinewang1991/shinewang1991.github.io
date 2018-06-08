@@ -13,11 +13,11 @@
 
     <title>
         
-          Archives - shine的博客 | shine&#39;s Blog | shinewang
+          存储SHSH blobs - shine的博客 | shine&#39;s Blog | shinewang
         
     </title>
 
-    <link rel="canonical" href="https://shinewang1991.github.io/archives/">
+    <link rel="canonical" href="https://shinewang1991.github.io/2018/06/08/存储SHSH-blobs/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -147,169 +147,143 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://shinewang1991.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Archives</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Archives.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                    </div>
+                    <h1>存储SHSH blobs</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Shine Wang on
+                        2018-06-08
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <p>最近国外coolStar大神即将发布iOS 11.3.1的越狱，所以特别想再次体验下越狱。记忆中还是当年iOS 7的是时候把我的iPhone 5越狱了玩了一把。后来就陆续错过了很多越狱版本。虽然越来越多的声音说越狱已经没那么有必要了，该有的功能不用越狱苹果也为我们做了。但是如果作为一个开发者，特别是对逆向这个方向有兴趣的话，我觉得还是很有必要的。今天我要写的是在你的手机越狱之前如果保存SHSH blobs？</p>
+<p>什么是SHSH blobs， 做什么用的？<br>参照维基百科上的解释<a href="https://en.wikipedia.org/wiki/SHSH_blob" target="_blank" rel="noopener">SHSH blob</a>:SHSH blob文件是苹果用于升级和恢复系统的验证机制的数据文件，用来控制哪些版本的系统可以安装到iOS设备上，一般来说苹果只允许安装最新的系统。这套机制是被TATSU(“TSS”)验证服务(gs.apple.com)管理的，只能通过iTunes安装或者恢复苹果签名过的系统版本. 而越狱开发者围绕这套流程制作了第三方的工具，可以用SHSH blob文件安装以前的可越狱的并且被Apple关闭验证的系统版本。</p>
+<p>你就可以这样理解，SHSH blobs文件是用来打破苹果的限制降级系统版本的。 例如苹果某个系统版本已经关闭验证了（我在写这篇文章的时候，苹果刚关了11.3.1的验证,所以如果你的系统已经不是11.3.1系统版本了，你就无法再升级或者降级到11.3.1版本了，除非你之前有保存SHSH blob文件）</p>
+<p>如何存SHSH blobs?<br>存blobs切记一定要在苹果关闭当前版本验证之前，否则貌似就是保存不了了，我猜测存储SHSH blobs也要走苹果某个服务验证. 我以iOS 11.3.1举栗子，操作步骤:</p>
+<h2 id="第一步-获取-ECID"><a href="#第一步-获取-ECID" class="headerlink" title="第一步:获取 ECID"></a>第一步:获取 ECID</h2><ul>
+<li>首先你得有台PC，安装上iTunes, 连上手机,进入summary,单击Serial Number那一栏，一直等到出现ECID之后，复制拿到ECID.<img src="ECID.png" alt=""><h2 id="第二步-查看Model-Identifier"><a href="#第二步-查看Model-Identifier" class="headerlink" title="第二步:查看Model Identifier"></a>第二步:查看Model Identifier</h2></li>
+<li>跟上面步骤一样，还是在iTunes里，单击summary那一行,等到出现Model Identifier.这就是你的Model Identifier。<img src="ModelIdentifier.png" alt=""><h2 id="第三步-存储SHSH-blobs"><a href="#第三步-存储SHSH-blobs" class="headerlink" title="第三步:存储SHSH blobs"></a>第三步:存储SHSH blobs</h2></li>
+<li>进入网站<a href="https://tsssaver.1conan.com" target="_blank" rel="noopener">https://tsssaver.1conan.com</a></li>
+<li>粘贴你的ECID到ECID那一栏,注意选择框是选择Hex(iTunes).</li>
+<li>选择你的iPhone Model Identifer. 就是第二步刚刚看到的.</li>
+<li>然后submit. 你就会跳转到一个下载页面, 你的SHSH blobs就存在那个网盘里了。</li>
+</ul>
+<p>你可能会问到，这个文件需要下载下来自己保存吗？ 不用，这个服务器会为你存储，以后就只需要进入刚才那个page, 下面有个Lost your link ,输入你的ECID, 即可找回你的blobs，还是很方便的。</p>
+<p>还有一点，貌似你将你的ECID上传到这个服务器后，以后每个系统版本，服务器都会自动为你保存各个版本的blobs,你都不用再做什么了。</p>
+<p>好，SHSH blobs文件我们已经知道如何存储了。我们就可以放心的去享受越狱了，哪怕以后系统升级了，越狱没了。还可以有办法降级回来了！</p>
 
 
+                <hr>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
-                    <span class="tag-text">2018</span>
-                </span>
-                <ul>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    06-08
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/06/08/存储SHSH-blobs/" style="color: #0085a1">
-                        <span>
-                            存储SHSH blobs
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    05-26
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/05/26/微信Hook不断折腾/" style="color: #0085a1">
-                        <span>
-                            微信Hook不断折腾
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    05-08
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/05/08/OpenCV环境搭建/" style="color: #0085a1">
-                        <span>
-                            OpenCV环境搭建
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    05-08
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/05/08/记录一点产品的灵感/" style="color: #0085a1">
-                        <span>
-                            记录一点产品的灵感
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-25
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/25/解决cocoapods问题/" style="color: #0085a1">
-                        <span>
-                            解决cocoapods问题
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-21
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/21/iOS平台基于FFmpeg视频解码的实现/" style="color: #0085a1">
-                        <span>
-                            iOS平台基于FFmpeg视频解码的实现
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/12/Hexo-Github-Travis-CI搭建blog记录/" style="color: #0085a1">
-                        <span>
-                            Hexo+Github+Travis CI搭建blog记录
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/10/第一篇博客/" style="color: #0085a1">
-                        <span>
-                            我的博客终于开通了
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
                 
 
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/05/26/微信Hook不断折腾/" data-toggle="tooltip" data-placement="top" title="微信Hook不断折腾">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
 
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
 
         </div>
     </div>
-</div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "shinewang";
+    var disqus_identifier = "https://shinewang1991.github.io/2018/06/08/存储SHSH-blobs/";
+    var disqus_url = "https://shinewang1991.github.io/2018/06/08/存储SHSH-blobs/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
 
 
     <!-- Footer -->
