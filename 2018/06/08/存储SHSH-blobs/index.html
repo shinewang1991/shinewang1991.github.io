@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -192,12 +192,16 @@
                 post-container">
 
                 <p>最近国外coolStar大神即将发布iOS 11.3.1的越狱，所以特别想再次体验下越狱。记忆中还是当年iOS 7的是时候把我的iPhone 5越狱了玩了一把。后来就陆续错过了很多越狱版本。虽然越来越多的声音说越狱已经没那么有必要了，该有的功能不用越狱苹果也为我们做了。但是如果作为一个开发者，特别是对逆向这个方向有兴趣的话，我觉得还是很有必要的。今天我要写的是在你的手机越狱之前如果保存SHSH blobs？</p>
-<p>什么是SHSH blobs， 做什么用的？<br>参照维基百科上的解释<a href="https://en.wikipedia.org/wiki/SHSH_blob" target="_blank" rel="noopener">SHSH blob</a>:SHSH blob文件是苹果用于升级和恢复系统的验证机制的数据文件，用来控制哪些版本的系统可以安装到iOS设备上，一般来说苹果只允许安装最新的系统。这套机制是被TATSU(“TSS”)验证服务(gs.apple.com)管理的，只能通过iTunes安装或者恢复苹果签名过的系统版本. 而越狱开发者围绕这套流程制作了第三方的工具，可以用SHSH blob文件安装以前的可越狱的并且被Apple关闭验证的系统版本。</p>
+<p>什么是SHSH blobs， 做什么用的？<br>参照<a href="https://en.wikipedia.org/wiki/SHSH_blob" target="_blank" rel="noopener">维基百科</a>上的解释SHSH blob文件是苹果用于升级和恢复系统的验证机制的数据文件，用来控制哪些版本的系统可以安装到iOS设备上，一般来说苹果只允许安装最新的系统。这套机制是被TATSU(“TSS”)验证服务(gs.apple.com)管理的，只能通过iTunes安装或者恢复苹果签名过的系统版本. 而越狱开发者围绕这套流程制作了第三方的工具，可以用SHSH blob文件安装以前的可越狱的并且被Apple关闭验证的系统版本。</p>
 <p>你就可以这样理解，SHSH blobs文件是用来打破苹果的限制降级系统版本的。 例如苹果某个系统版本已经关闭验证了（我在写这篇文章的时候，苹果刚关了11.3.1的验证,所以如果你的系统已经不是11.3.1系统版本了，你就无法再升级或者降级到11.3.1版本了，除非你之前有保存SHSH blob文件）</p>
 <p>如何存SHSH blobs?<br>存blobs切记一定要在苹果关闭当前版本验证之前，否则貌似就是保存不了了，我猜测存储SHSH blobs也要走苹果某个服务验证. 我以iOS 11.3.1举栗子，操作步骤:</p>
 <h2 id="第一步-获取-ECID"><a href="#第一步-获取-ECID" class="headerlink" title="第一步:获取 ECID"></a>第一步:获取 ECID</h2><ul>
-<li>首先你得有台PC，安装上iTunes, 连上手机,进入summary,单击Serial Number那一栏，一直等到出现ECID之后，复制拿到ECID.<img src="ECID.png" alt=""><h2 id="第二步-查看Model-Identifier"><a href="#第二步-查看Model-Identifier" class="headerlink" title="第二步:查看Model Identifier"></a>第二步:查看Model Identifier</h2></li>
-<li>跟上面步骤一样，还是在iTunes里，单击summary那一行,等到出现Model Identifier.这就是你的Model Identifier。<img src="ModelIdentifier.png" alt=""><h2 id="第三步-存储SHSH-blobs"><a href="#第三步-存储SHSH-blobs" class="headerlink" title="第三步:存储SHSH blobs"></a>第三步:存储SHSH blobs</h2></li>
+<li>首先你得有台PC，安装上iTunes, 连上手机,进入summary,单击Serial Number那一栏，一直等到出现ECID之后，复制拿到ECID.<img src="ECID.png" alt=""></li>
+</ul>
+<h2 id="第二步-查看Model-Identifier"><a href="#第二步-查看Model-Identifier" class="headerlink" title="第二步:查看Model Identifier"></a>第二步:查看Model Identifier</h2><ul>
+<li>跟上面步骤一样，还是在iTunes里，单击summary那一行,等到出现Model Identifier.这就是你的Model Identifier。<img src="ModelIdentifier.png" alt=""></li>
+</ul>
+<h2 id="第三步-存储SHSH-blobs"><a href="#第三步-存储SHSH-blobs" class="headerlink" title="第三步:存储SHSH blobs"></a>第三步:存储SHSH blobs</h2><ul>
 <li>进入网站<a href="https://tsssaver.1conan.com" target="_blank" rel="noopener">https://tsssaver.1conan.com</a></li>
 <li>粘贴你的ECID到ECID那一栏,注意选择框是选择Hex(iTunes).</li>
 <li>选择你的iPhone Model Identifer. 就是第二步刚刚看到的.</li>
