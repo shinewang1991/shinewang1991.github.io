@@ -13,11 +13,11 @@
 
     <title>
         
-          记录一点产品的灵感 - shine的博客 | shine&#39;s Blog | shinewang
+          Objective-C runtime实践 - shine的博客 | shine&#39;s Blog | shinewang
         
     </title>
 
-    <link rel="canonical" href="https://shinewang1991.github.io/2018/05/08/记录一点产品的灵感/">
+    <link rel="canonical" href="https://shinewang1991.github.io/2018/08/22/Objective-C-runtime实践/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/home-bg-o.jpg')
+        background-image: url('post_header.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -166,11 +166,11 @@
                     <div class="tags">
                         
                     </div>
-                    <h1>记录一点产品的灵感</h1>
+                    <h1>Objective-C runtime实践</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Shine Wang on
-                        2018-05-08
+                        2018-08-22
                     </span>
                 </div>
             </div>
@@ -189,7 +189,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="因为自己的亲身经历和想法，在去年的时候，经常每到周末来临前一两天，或者小长假之前，会突然萌生一个想出去玩耍的念头，但是又没有合适的朋友一起同行，自己的话又略显孤单，还一种可能就是有些人会想跟陌生人一起旅行，因为有的时候互相太了解，在一起旅行并不一定是最好的体验。基于上面的想法，我就想设计一款app-基于地理位置，基于时间，制定出行计划，约同行。涉及到的最大问题可能就是安全性和信任感了，所以一定要做到实名认证，双方基于一种可靠的信任为前提。如果某一天我想去某个地方，就可以上这个app-发布自己的旅行目的地和时间，就可以找到是否有跟自己匹配的人选，因为肯定会有其他人也有跟你一样的想法。"><a href="#因为自己的亲身经历和想法，在去年的时候，经常每到周末来临前一两天，或者小长假之前，会突然萌生一个想出去玩耍的念头，但是又没有合适的朋友一起同行，自己的话又略显孤单，还一种可能就是有些人会想跟陌生人一起旅行，因为有的时候互相太了解，在一起旅行并不一定是最好的体验。基于上面的想法，我就想设计一款app-基于地理位置，基于时间，制定出行计划，约同行。涉及到的最大问题可能就是安全性和信任感了，所以一定要做到实名认证，双方基于一种可靠的信任为前提。如果某一天我想去某个地方，就可以上这个app-发布自己的旅行目的地和时间，就可以找到是否有跟自己匹配的人选，因为肯定会有其他人也有跟你一样的想法。" class="headerlink" title="因为自己的亲身经历和想法，在去年的时候，经常每到周末来临前一两天，或者小长假之前，会突然萌生一个想出去玩耍的念头，但是又没有合适的朋友一起同行，自己的话又略显孤单，还一种可能就是有些人会想跟陌生人一起旅行，因为有的时候互相太了解，在一起旅行并不一定是最好的体验。基于上面的想法，我就想设计一款app,基于地理位置，基于时间，制定出行计划，约同行。涉及到的最大问题可能就是安全性和信任感了，所以一定要做到实名认证，双方基于一种可靠的信任为前提。如果某一天我想去某个地方，就可以上这个app,发布自己的旅行目的地和时间，就可以找到是否有跟自己匹配的人选，因为肯定会有其他人也有跟你一样的想法。"></a>因为自己的亲身经历和想法，在去年的时候，经常每到周末来临前一两天，或者小长假之前，会突然萌生一个想出去玩耍的念头，但是又没有合适的朋友一起同行，自己的话又略显孤单，还一种可能就是有些人会想跟陌生人一起旅行，因为有的时候互相太了解，在一起旅行并不一定是最好的体验。基于上面的想法，我就想设计一款app,基于地理位置，基于时间，制定出行计划，约同行。涉及到的最大问题可能就是安全性和信任感了，所以一定要做到实名认证，双方基于一种可靠的信任为前提。如果某一天我想去某个地方，就可以上这个app,发布自己的旅行目的地和时间，就可以找到是否有跟自己匹配的人选，因为肯定会有其他人也有跟你一样的想法。</h2>
+                <p>load函数与initialize函数作用和调用时机?</p>
+<p>load函数: NSObject对象load函数是在app启动时main函数执行之前调用的. 先说继承关系，父类和子类都有实现load函数，则先执行父类load,再执行子类load. </p>
+<p>如果工程里同时存在NSObject多个category, 它们的调用时机是由编译器编译顺序决定的，理论上来说是后添加到工程里的category会先被执行. 可在build Phases里的Compile Source里调整编译顺序，Compile Source是个栈结构，后放进来的也就是靠近栈顶的先出栈被编译。这点无论是继承或者category都是如此。</p>
+<p>如果同时存在继承关系和分类关系(都实现了load函数)，则先执行父类load, 然后子类load, 然后按照分类的规则去执行.</p>
+<p>initialize函数: initialze函数只会在对象第一初始化时会被执行，一个对象的initialize函数只会执行一次，无论有几个category. 而且存在多个category时。会执行最后编译的文件的initialize函数，这点和load函数相反. 例如工程里有个Person对象，Person有A和B两个category. A先添加进工程，B后添加工程，则编译器会先编译B再编译A. initialize函数只有后编译的的A会执行. </p>
+<p>如果父类和子类同时重写了initialze函数，初始化父类时，只会执行一次父类的initialze函数.</p>
+<p>初始化子类对象时，则会先执行父类的initialze，然后执行子类的initialze。如果父类存在category，则优先执行 后编译进来的category的initialze, 再执行子类的initialze。</p>
+
 
                 <hr>
 
@@ -197,13 +204,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/05/08/OpenCV环境搭建/" data-toggle="tooltip" data-placement="top" title="OpenCV环境搭建">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2018/04/25/解决cocoapods问题/" data-toggle="tooltip" data-placement="top" title="解决cocoapods问题">Next Post &rarr;</a>
+                            <a href="/2018/06/24/吉他入门巴哈小步舞曲/" data-toggle="tooltip" data-placement="top" title="吉他入门巴哈小步舞曲">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -255,8 +258,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "shinewang";
-    var disqus_identifier = "https://shinewang1991.github.io/2018/05/08/记录一点产品的灵感/";
-    var disqus_url = "https://shinewang1991.github.io/2018/05/08/记录一点产品的灵感/";
+    var disqus_identifier = "https://shinewang1991.github.io/2018/08/22/Objective-C-runtime实践/";
+    var disqus_url = "https://shinewang1991.github.io/2018/08/22/Objective-C-runtime实践/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

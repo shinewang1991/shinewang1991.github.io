@@ -90,13 +90,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
                         
@@ -105,6 +98,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -181,6 +181,29 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2018/08/22/Objective-C-runtime实践/">
+        <h2 class="post-title">
+            Objective-C runtime实践
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            load函数与initialize函数作用和调用时机?
+load函数: NSObject对象load函数是在app启动时main函数执行之前调用的. 先说继承关系，父类和子类都有实现load函数，则先执行父类load,再执行子类load. 
+如果工程里同时存在NSObject多个category, 它们的调用时机是由编译器编译顺序决定的，理论上来说是后添加到工程里的category会先被执行......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Shine Wang on
+        2018-08-22
+    </p>
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -372,27 +395,6 @@ C和......
         </h3>
         <div class="post-content-preview">
             记录OpenCV环境搭建的过程....
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Shine Wang on
-        2018-05-08
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/05/08/记录一点产品的灵感/">
-        <h2 class="post-title">
-            记录一点产品的灵感
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-             因为自己的亲身经历和想法，在去年的时候，经常每到周末来临前一两天，或者小长假之前，会突然萌生一个想出去玩耍的念头，但是又没有合适的朋友一起同行，自己的话又略显孤单，还一种可能就是有些人会想跟陌生人一起旅行，因为有的时候互相太了解，在一起旅行并不一定是最好的体验。基于上面的想法，我就想设计一款app,基于地理位置，基于时间，制定出行计划，约同行。涉及到的最大问题可能就是安全性和信任感了，所以......
         </div>
     </a>
     <p class="post-meta">
